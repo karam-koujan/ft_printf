@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_putunbr_base.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 16:52:28 by kkoujan           #+#    #+#             */
-/*   Updated: 2024/11/14 16:44:34 by kkoujan          ###   ########.fr       */
+/*   Created: 2024/11/14 15:17:01 by kkoujan           #+#    #+#             */
+/*   Updated: 2024/11/14 15:59:59 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libftprintf.h"
 
-# include <stdarg.h>
-# include "./libft/libft.h"
+void	ft_putunbr_base(unsigned int n, char *base)
+{
+	char			r;
+	unsigned int	len;
 
-int		ft_printf(const char *format, ...);
-void	ft_putunbr_base(unsigned int n, char *base);
-void	ft_putaddress(void *p);
-
-
-#endif
+	len = ft_strlen(base);
+	if (n >= len)
+	{
+		ft_putunbr_base(n / len, base);
+	}
+	r = base[n % len];
+	write(1, &r, 1);
+}

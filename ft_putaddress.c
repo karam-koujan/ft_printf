@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_putaddress.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 16:52:28 by kkoujan           #+#    #+#             */
-/*   Updated: 2024/11/14 16:44:34 by kkoujan          ###   ########.fr       */
+/*   Created: 2024/11/14 16:40:02 by kkoujan           #+#    #+#             */
+/*   Updated: 2024/11/14 16:43:11 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libftprintf.h"
 
-# include <stdarg.h>
-# include "./libft/libft.h"
+static void	ft_putaddress_base(uintptr_t n, char *base)
+{
+	char			r;
+	unsigned int	len;
 
-int		ft_printf(const char *format, ...);
-void	ft_putunbr_base(unsigned int n, char *base);
-void	ft_putaddress(void *p);
+	len = ft_strlen(base);
+	if (n >= len)
+	{
+		ft_putaddress_base(n / len, base);
+	}
+	r = base[n % len];
+	write(1, &r, 1);
+}
 
+void	ft_putaddress(void *p)
+{
+	uintptr_t		address;
 
-#endif
+	address = (uintptr_t)p;
+	ft_putstr_fd("0x", 1);
+	ft_putaddress_base(address, "0123456789abcdef");
+}

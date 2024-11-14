@@ -6,19 +6,19 @@
 #    By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/13 14:33:32 by kkoujan           #+#    #+#              #
-#    Updated: 2024/11/13 16:52:08 by kkoujan          ###   ########.fr        #
+#    Updated: 2024/11/14 16:51:04 by kkoujan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 CC = cc 
 CFLAGS = -Wall -Wextra -Werror
-
+OBJ = ft_printf.o ft_putunbr_base.o ft_putaddress.o
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(AR) $(NAME) $^
+	$(AR) rcs $(NAME) $^
 
 makelibft:
 	$(MAKE) -C libft
@@ -31,3 +31,4 @@ clean :
 
 fclean : clean
 	$(RM) $(NAME)
+re : fclean all
