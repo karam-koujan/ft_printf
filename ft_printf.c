@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 16:54:47 by kkoujan           #+#    #+#             */
-/*   Updated: 2024/11/14 16:54:19 by kkoujan          ###   ########.fr       */
+/*   Updated: 2024/11/14 17:38:46 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ int ft_printf(const char *format, ...)
 			if (*format == 'X')
 			{
 				ft_putunbr_base(va_arg(args, unsigned int),"0123456789ABCDEF");
+			}
+			if (*format == '%')
+			{
+				ft_putchar_fd('%',1);
 			}
 			if (*format == 's')
 			{
