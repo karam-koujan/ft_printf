@@ -6,7 +6,7 @@
 #    By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/13 14:33:32 by kkoujan           #+#    #+#              #
-#    Updated: 2024/11/14 16:51:04 by kkoujan          ###   ########.fr        #
+#    Updated: 2024/11/14 19:08:45 by kkoujan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ $(NAME) : $(OBJ)
 makelibft:
 	$(MAKE) -C libft
 
-%.o : %.c libftprintf.h makelibft
+%.o : %.c ft_printf.h makelibft
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :

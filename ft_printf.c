@@ -6,11 +6,11 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 16:54:47 by kkoujan           #+#    #+#             */
-/*   Updated: 2024/11/14 17:38:46 by kkoujan          ###   ########.fr       */
+/*   Updated: 2024/11/14 19:00:38 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int ft_printf(const char *format, ...)
 {
