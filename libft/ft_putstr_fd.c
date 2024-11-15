@@ -6,14 +6,18 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 09:49:27 by kkoujan           #+#    #+#             */
-/*   Updated: 2024/10/28 10:00:08 by kkoujan          ###   ########.fr       */
+/*   Updated: 2024/11/15 10:37:38 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_putstr_fd(char *s, int fd)
 {
 	if (s != NULL)
+	{
 		write(fd, s, ft_strlen(s));
+		return (ft_strlen(s));
+	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 16:54:47 by kkoujan           #+#    #+#             */
-/*   Updated: 2024/11/14 19:00:38 by kkoujan          ###   ########.fr       */
+/*   Updated: 2024/11/15 10:43:31 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 int ft_printf(const char *format, ...)
 {
 	va_list	args;
-	int		len;
+	int		count;
 
 	va_start(args, format);
-	len = ft_strlen(format);
+	count = 0;
 	while (*format)
 	{
 		if (*format == '%')
@@ -27,42 +27,46 @@ int ft_printf(const char *format, ...)
 			if (*format == 'c')
 			{
 				ft_putchar_fd(va_arg(args, int),1);
+				count++;
 			}
 			if (*format == 'd' || *format == 'i')
 			{
-				ft_putnbr_fd(va_arg(args, int),1);
+				count+=ft_putnbr_fd(va_arg(args, int),1);
 			}
 			if (*format == 'u')
 			{
-				ft_putunbr_base(va_arg(args, unsigned int),"0123456789");
+				count+=ft_putunbr_base(va_arg(args, unsigned int),"0123456789");
 			}
 			if (*format == 'x')
 			{
-				ft_putunbr_base(va_arg(args, unsigned int),"0123456789abcdef");
+				count+=ft_putunbr_base(va_arg(args, unsigned int),"0123456789abcdef");
 			}
 			if (*format == 'X')
 			{
-				ft_putunbr_base(va_arg(args, unsigned int),"0123456789ABCDEF");
+				count+=ft_putunbr_base(va_arg(args, unsigned int),"0123456789ABCDEF");
 			}
 			if (*format == '%')
 			{
 				ft_putchar_fd('%',1);
+				count++;
 			}
 			if (*format == 's')
 			{
-				ft_putstr_fd(va_arg(args, char *),1);
+				count+=ft_putstr_fd(va_arg(args, char *),1);
 			}
 			if (*format == 'p')
 			{
-				ft_putaddress(va_arg(args, void *));
+				count+=ft_putaddress(va_arg(args, void *));
 			}
 		}
 		else
 		{
 			ft_putchar_fd(*format,1);
+			count++;
 		}
 		format++;
 	}
 	va_end(args);
-	return (len);
+	return (count);
 }
+

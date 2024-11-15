@@ -6,31 +6,35 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:40:02 by kkoujan           #+#    #+#             */
-/*   Updated: 2024/11/14 19:00:35 by kkoujan          ###   ########.fr       */
+/*   Updated: 2024/11/15 10:44:37 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_putaddress_base(uintptr_t n, char *base)
+static int	ft_putaddress_base(uintptr_t n, char *base)
 {
 	char			r;
 	unsigned int	len;
+	int				count;
 
 	len = ft_strlen(base);
+	count = 0;
 	if (n >= len)
 	{
-		ft_putaddress_base(n / len, base);
+		count +=ft_putaddress_base(n / len, base);
 	}
 	r = base[n % len];
 	write(1, &r, 1);
+	count++;
+	return (count);
 }
 
-void	ft_putaddress(void *p)
+int	ft_putaddress(void *p)
 {
 	uintptr_t		address;
 
 	address = (uintptr_t)p;
-	ft_putstr_fd("0x", 1);
-	ft_putaddress_base(address, "0123456789abcdef");
+	return (ft_putstr_fd("0x", 1) + \
+	ft_putaddress_base(address, "0123456789abcdef"));
 }
