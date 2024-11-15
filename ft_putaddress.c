@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:40:02 by kkoujan           #+#    #+#             */
-/*   Updated: 2024/11/15 10:44:37 by kkoujan          ###   ########.fr       */
+/*   Updated: 2024/11/15 12:56:22 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	ft_putaddress_base(uintptr_t n, char *base)
 	count = 0;
 	if (n >= len)
 	{
-		count +=ft_putaddress_base(n / len, base);
+		count += ft_putaddress_base(n / len, base);
 	}
 	r = base[n % len];
 	write(1, &r, 1);

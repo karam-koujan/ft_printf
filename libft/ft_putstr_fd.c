@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 09:49:27 by kkoujan           #+#    #+#             */
-/*   Updated: 2024/11/15 10:37:38 by kkoujan          ###   ########.fr       */
+/*   Updated: 2024/11/15 12:08:32 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ int	ft_putstr_fd(char *s, int fd)
 		write(fd, s, ft_strlen(s));
 		return (ft_strlen(s));
 	}
-	return (0);
+	write(fd, "(null)", ft_strlen("(null)"));
+	return (ft_strlen("(null)"));
 }
