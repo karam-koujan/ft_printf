@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 16:54:47 by kkoujan           #+#    #+#             */
-/*   Updated: 2024/11/15 10:43:31 by kkoujan          ###   ########.fr       */
+/*   Updated: 2024/11/15 10:49:17 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,10 @@ int ft_printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
+#include <stdio.h>
 
+int main()
+{
+	printf("sdasd %s",NULL);
+	ft_printf("sdasd %s",NULL);
+}
