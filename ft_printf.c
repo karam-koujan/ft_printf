@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 16:54:47 by kkoujan           #+#    #+#             */
-/*   Updated: 2024/11/19 20:14:39 by kkoujan          ###   ########.fr       */
+/*   Updated: 2024/11/20 11:05:54 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_printf(const char *format, ...)
 	int		count;
 
 	if (!format)
-		return (-1);
+		return (ft_strlen(NULL));
 	if (format[0] == '\0')
 		return (0);
 	if (write(1, 0, 0) == -1)
