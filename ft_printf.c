@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 16:54:47 by kkoujan           #+#    #+#             */
-/*   Updated: 2024/11/20 11:05:54 by kkoujan          ###   ########.fr       */
+/*   Updated: 2024/11/23 20:33:48 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ static int	ft_print_helper(char format, va_list args)
 		return (ft_putstr(va_arg(args, char *)));
 	if (format == 'p')
 		return (ft_putaddress(va_arg(args, void *)));
+	if (!ft_strchr("cspdiuxX%", format))
+		return (ft_putchar(format));
 	return (0);
 }
 

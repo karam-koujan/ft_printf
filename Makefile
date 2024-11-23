@@ -6,7 +6,7 @@
 #    By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/13 14:33:32 by kkoujan           #+#    #+#              #
-#    Updated: 2024/11/19 18:27:44 by kkoujan          ###   ########.fr        #
+#    Updated: 2024/11/23 20:29:24 by kkoujan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 OBJ = ft_printf.o ft_putunbr_base.o ft_putaddress.o \
-	  ft_strlen.o ft_putnbr.o ft_putchar.o ft_putstr.o
+	  ft_strlen.o ft_putnbr.o ft_putchar.o ft_putstr.o ft_strchr.o
 
 all: $(NAME)
 
